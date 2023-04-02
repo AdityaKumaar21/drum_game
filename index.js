@@ -3,6 +3,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var btn=this.innerHTML;
     // this.style.color="blue";
     makesound(btn);
+    delay(btn);
 });
 
 }
@@ -10,6 +11,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
 document.addEventListener("keypress",function(event){
     // this.style.color="blue";
     makesound(event.key);
+    delay(btn);
 });
 
 function makesound(key){
@@ -48,4 +50,11 @@ function makesound(key){
         default:
             break;
     }
+}
+function delay(btn){
+    var activekey=document.querySelector("."+btn);
+    activekey.classList.add("pressed");
+    setTimeout(function(){
+        activekey.classList.remove("pressed");
+    },100)
 }
